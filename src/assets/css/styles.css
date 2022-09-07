@@ -1,0 +1,221 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --checkbox-color: rgb(252, 75, 75);
+    --checkbox-shadow: rgba(238, 156, 167, 0.2);
+    --add-button: rgba(255, 255, 255, 0.7);
+    --add-button-shadow: rgba(238, 156, 167, 0.4);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(75, 137, 252);
+    /*background-blend-mode: normal, lighten, multiply, hard-light;*/
+    /*overflow: hidden;*/
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+input {
+    outline: none;
+}
+
+.task-complet {
+    list-style: none;
+}
+
+.task-complet li {
+    line-height: 180%;
+}
+
+.task-complet input[name="list"] {
+    position: absolute;
+    left: -1000em;
+}
+
+.task-complet .desplegable {
+    color: #817f7f;
+}
+
+.task-complet .desplegable::before {
+    content: "\025b8";
+    margin-right: 4px;
+}
+
+.task-complet input:checked~.desplegable:before {
+    content: "\025be";
+}
+
+.task-complet .interior {
+    display: none;
+}
+
+.task-complet input:checked~ul {
+    display: block;
+}
+
+h1 {
+    font-size: 20px;
+    line-height: 32px;
+    margin: 0 0 12px 0;
+    color: #272727;
+    text-align: center;
+}
+
+.submit-task {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border: none;
+    background: var(--add-button);
+    color: #272727;
+    background-image: url(../../../public/add.png);
+    background-size: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 12px 0 var(--add-button-shadow);
+}
+
+.add-task {
+    height: 40px;
+    font-size: 14px;
+    display: flex;
+}
+
+.task-input {
+    width: 100%;
+    padding: 0 5px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #272727;
+    background-color: transparent;
+    margin-right: 15px;
+    color: #272727;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.task-input::placeholder {
+    color: #272727;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list-item {
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 35px;
+    margin-bottom: 12px;
+}
+
+.task-list-item input {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #272727;
+    background-image: url(../../../public/check.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0;
+    transition: 0.2s;
+    margin-right: 8px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    appearance: none;
+}
+
+.task-list-item input:hover {
+    border-color: rgb(75, 137, 252);
+    box-shadow: 0 0 0 3px var(--checkbox-shadow);
+}
+
+.task-list-item input:checked {
+    background-size: 10px;
+    border: 1px solid var(--checkbox-color);
+    background-color: var(--checkbox-color);
+}
+
+.task-list-item input:checked+span {
+    color: #272727;
+    text-decoration: line-through #272727;
+}
+
+.task-list-item-label {
+    display: flex;
+    align-items: flex-start;
+    color: #272727;
+    margin-right: 8px;
+    font-size: 14px;
+    line-height: 24px;
+    position: relative;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.task-list-item-completados {
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 35px;
+    margin-bottom: 12px;
+}
+
+.task-list-item-completados input {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #272727;
+    background-image: url(../../../public/check.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0;
+    transition: 0.2s;
+    margin-right: 8px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    appearance: none;
+}
+
+.task-list-item-completados input:hover {
+    border-color: var(--checkbox-color);
+    box-shadow: 0 0 0 3px var(--checkbox-shadow);
+}
+
+.task-list-item-completados input {
+    background-size: 10px;
+    border: 1px solid var(--checkbox-color);
+    background-color: var(--checkbox-color);
+}
+
+.task-list-item-completados input+span {
+    color: #272727;
+    text-decoration: line-through #272727;
+}
+
+.delete-btn {
+    margin-left: auto;
+    margin-right: 5px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url(../../../public/delete.png);
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: center;
+    cursor: pointer;
+}

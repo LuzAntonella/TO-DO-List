@@ -7,26 +7,18 @@ export const getTodo = /* GraphQL */ `
       id
       name
       description
-      createdAt
-      updatedAt
     }
   }
-`;
+`
 export const listTodos = /* GraphQL */ `
-  query ListTodos(
-    $filter: ModelTodoFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
+  query ListTodos($filter: ModelTodoFilterInput, $limit: Int, $nextToken: String) {
     listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
         description
-        createdAt
-        updatedAt
       }
       nextToken
     }
   }
-`;
+`
